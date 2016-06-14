@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RxAndroid</string>
+    <string name="register_protocol">我已阅读并同意《用户注册协议》</string>
+    <string name="register">注  册</string>
+</resources>
