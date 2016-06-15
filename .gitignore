@@ -73,6 +73,8 @@ captures/
 # Gradle:
 .idea/gradle.xml
 .idea/libraries
+gradle/
+gradlew*
 
 # Mongo Explorer plugin:
 .idea/mongoSettings.xml
