@@ -25,6 +25,10 @@ public class ThreadUtil {
         Log.d("lyl", "=========" + Thread.currentThread() + " END   ==========");
     }
 
+    public static <R> Observable<R> applySchedulers(Observable<R> o) {
+        return o.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    }
+
     public static <R> Observable.Transformer<R, R> applySchedulers() {
         return new Observable.Transformer<R, R>() {
             @Override

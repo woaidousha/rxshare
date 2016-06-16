@@ -53,7 +53,7 @@ public class RxRegisterActivity extends RegisterBaseActivity {
     }
 
     @Override
-    protected void onRegister(final User user) {
+    protected void startRegister(final User user) {
         Observable.just(user).map(new Func1<User, Boolean>() {
             @Override
             public Boolean call(User user) {
@@ -65,18 +65,17 @@ public class RxRegisterActivity extends RegisterBaseActivity {
 
             @Override
             public void onStart() {
-                mDialog.setMessage("Loading");
-                mDialog.show();
+                beforeRegister();
             }
 
             @Override
             public void onCompleted() {
-                mDialog.dismiss();
+                afterReigster();
             }
 
             @Override
             public void onError(Throwable e) {
-                mDialog.dismiss();
+                afterReigster();
                 Toast.makeText(RxRegisterActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
 

@@ -42,16 +42,14 @@ public class RegisterBaseActivity extends Activity {
         mDialog = new ProgressDialog(this);
     }
 
-
-
     protected void register() {
         User user = new User();
         user.setUsername(mUserName.getText().toString());
         user.setPwd(mPassword.getText().toString());
-        onRegister(user);
+        startRegister(user);
     }
 
-    protected void onRegister(User user) {
+    protected void startRegister(User user) {
     }
 
     protected boolean actualRegister(User user) {
@@ -67,4 +65,12 @@ public class RegisterBaseActivity extends Activity {
         return true;
     }
 
+    public void beforeRegister() {
+        mDialog.setMessage("Loading");
+        mDialog.show();
+    }
+
+    public void afterReigster() {
+        mDialog.dismiss();
+    }
 }

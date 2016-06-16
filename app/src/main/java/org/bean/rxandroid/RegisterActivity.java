@@ -50,7 +50,7 @@ public class RegisterActivity extends RegisterBaseActivity {
     }
 
     @Override
-    protected void onRegister(User user) {
+    protected void startRegister(User user) {
         RegisterTask task = new RegisterTask();
         task.execute(user);
     }
@@ -71,9 +71,7 @@ public class RegisterActivity extends RegisterBaseActivity {
 
         @Override
         protected void onPreExecute() {
-            super.onPreExecute();
-            mDialog.setMessage("Loading");
-            mDialog.show();
+            beforeRegister();
         }
 
         @Override
@@ -83,7 +81,7 @@ public class RegisterActivity extends RegisterBaseActivity {
 
         @Override
         protected void onPostExecute(Boolean aBoolean) {
-            mDialog.dismiss();
+            afterReigster();
             String message = aBoolean ? "Register Success" : "Register Fail";
             Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
         }
